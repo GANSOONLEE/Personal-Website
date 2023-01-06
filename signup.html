@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注冊</title>
+
+    <!-- import css -->
+    <link href="css/style.css" rel="stylesheet"> 
+</head>
+<body>
+    <h1 class="header">阿循的主頁</h1>
+    <div class="signUpForm">
+        <form action="php/signup.php" method="post" class="form">
+            <h1 class="title">注冊</h1>
+            <div class="inputContainer">
+                <input type="email" class="input" placeholder="a" name="email" required>
+                <label for="" class="label">電子郵件</label>
+            </div>
+            <div class="inputContainer">
+                <input type="text" class="input" placeholder="a" name="user" required>
+                <label for="" class="label">用戶ID</label>
+            </div>
+            <div class="inputContainer">
+                <input type="text" class="input" placeholder="a" name="username" required>
+                <label for="" class="label">用戶名稱</label>
+            </div>
+            <div class="inputContainer">
+                <input type="password" class="input" placeholder="a" name="password" autocomplete="current-password" required>
+                <label for="" class="label">密碼</label>
+            </div>
+            <div class="inputContainer">
+                <input type="password" class="input" placeholder="a" name="confirm_password" required>
+                <label for="" class="label">確認密碼</label>
+            </div>
+            <div class="form-footer">
+                <label class="haveAccount">已經有賬號？<a href="index.html">登入</a></label>
+                <input type="submit" class="submitBtn" value="注冊">
+            </div>
+        </form>
+    </div>
+</body>
+</html>
