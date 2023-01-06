@@ -1,0 +1,123 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap'); */
+
+/* 去掉所有默认边距/填充，设置字体 */
+html{
+    font-size: 12px;
+    font-size: 1rem;
+    color: #fff;
+}
+
+body{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    /* background-color: #fff; */
+    font-family: "lato",sans-serif;
+    /* background: linear-gradient(45deg, rgb(96, 96, 243), rgb(113, 58, 129)); */
+    background-image: url(../img/header.jfif);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    backdrop-filter: brightness(20%);
+}
+.header{
+    font-size: 4rem;
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    top: 20px;
+    color: #fff;
+}
+.signUpForm{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.form{
+    /* background-color: #fff; */
+    width: 400px;
+    border-radius: 8px;
+    padding: 20px 40px;
+    /* box-shadow: 0 10px 25px rgba(92, 99, 105, .2); */
+}
+.title{
+    font-size: 2.4rem;
+    margin-bottom: 2.7rem;
+    text-align: center;
+}
+.inputContainer{
+    position: relative;
+    height: 45px;
+    width: 90%;
+    margin-bottom: 3.9rem;
+}
+.inputContainer.rememberMe{
+    height: auto;
+    margin: 0 1.2rem 0 1.3rem;
+}
+.input{
+    color: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border: none;
+    font-size: 1.5rem;
+    /* padding: 1.9rem 1.3rem; */
+    outline: none;
+    background: none;
+    z-index: 1;
+    border-bottom: #fff 1px solid;
+}
+::placeholder{
+    color: transparent;
+}
+
+/* 设置文本标签的样式 */
+
+.label {
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    padding: 0 .2rem 2rem;
+    margin-bottom: 1rem;
+    /* background-color: white; */
+    color: #aaaaaa;
+    font-size: 1.5rem;
+    transition: 0.5s;
+    z-index: 0;
+}
+.submitBtn{
+    display: block;
+    padding: 15px 30px;
+    border: none;
+    margin-left: auto;
+    background-color: rgb(58, 114, 133);
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+}
+.submitBtn:hover{
+    background-color: lightblue;
+    color: #000;
+}
+.input:focus + .label, .input:not(:placeholder-shown)+ .label{
+    top: -24px;
+    left: 0;
+    z-index: 10;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+.input:focus + .label{
+    color: #fff;
+}
+.form-footer{
+    display: flex;
+    justify-items: center;
+    align-items: center;
+}
+.haveAccount{
+    width: 40%;
+}

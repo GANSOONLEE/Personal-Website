@@ -1,0 +1,71 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+html{
+    font-size: 62.7%;
+    font-size: 1rem;
+}
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    cursor: pointer;
+    color: inherit;
+}
+input[type="checkbox"]{
+    display: none;
+}
+
+/* variable */
+
+:root{
+    --font-size-h1: 3rem;
+    --font-size-h2: 2.7rem;
+    --font-size-h3: 2.5rem;
+    --font-size-h4: 2.2rem;
+    --font-size-h5: 1.8rem;
+    --font-size-h6: 1.4rem;
+}
+
+/* pre css */
+.fa{
+    font-size: var(--font-size-h4);
+    cursor: pointer;
+}
+
+/* css style */
+.navbar{
+    width: 100%;
+    height: 10vh;
+    background-color: rgba(0, 0, 0, .2);
+}
+
+.setting{
+    transition: all .3s ease-in-out;
+    padding: .9rem 1.2rem;
+    background-color: rgba(0, 0, 0, .1);
+    width: 15%;
+    height: 25%;
+    position: absolute;
+    top: 10vh;
+    right: -100%;
+}
+
+.fa-gear{
+    transition: all .3s ease-in-out;
+    position: fixed;
+    top: 2rem;
+    right: 4rem;
+}
+#setting:checked + label .fa-gear{
+    transform: rotateZ(75deg);
+}
+#setting:checked ~ .setting{
+    right: 0;
+}
+
+#mode{
+    
+}
