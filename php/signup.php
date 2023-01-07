@@ -5,11 +5,13 @@ require  'PHPMailer-6.7.1/src/Exception.php' ;
 require  'PHPMailer-6.7.1/src/PHPMailer.php' ;
 require  'PHPMailer-6.7.1/src/SMTP.php' ;
 
-$db_host ='127.0.0.1';
-$db_user='root';
-$db_pwd='';
-$db_name='user';
-$db_port=3306;
+$data = json_decode(file_get_contents('../.env/data.json'), true);
+
+$db_host = $data->MySQL->db_host;
+$db_user= $data->MySQL->db_user;
+$db_pwd= $data->MySQL->pwd;
+$db_name= $data->MySQL->name;
+$db_port= $data->MySQL->port;
 
 $user =$_POST['user'];
 $password = $_POST['password'];
@@ -39,18 +41,18 @@ if($num==1){
     try{
         
         //服務器配置
-        $mail -> CharSet  = "UTF-8" ;                      //設定郵件編碼
+        $mail -> CharSet  = $data->email->CharSet;                      //設定郵件編碼
         $mail -> SMTPDebug  =  0 ;                         // 調試模式輸出
         $mail -> isSMTP ();                              // 使用SMTP
-        $mail -> Host  =  'smtp.gmail.com' ;                 // SMTP服務器
+        $mail -> Host  =  $data->email->Host;                 // SMTP服務器
         $mail -> SMTPAuth  =  true ;                       // 允許 SMTP 認證
-        $mail -> Username  =  'vincentgan0402@gmail.com' ;                 // SMTP 用戶名 即郵箱的用戶名
-        $mail -> Password  =  'qgmbvozhalbqsrrv' ;             // SMTP 密碼 部分郵箱是授權碼(例如163郵箱)
-        $mail -> SMTPSecure  =  'ssl' ;                     // 允許 TLS 或者ssl協議
-        $mail -> Port  =  465 ;                             // 服務器端口 25 或者465 具體要看郵箱服務器支持
+        $mail -> Username  = $data->email->Username;                 // SMTP 用戶名 即郵箱的用戶名
+        $mail -> Password  =  $data->email->Password;             // SMTP 密碼 部分郵箱是授權碼(例如163郵箱)
+        $mail -> SMTPSecure  =  $data->email->SMTPSecure;                     // 允許 TLS 或者ssl協議
+        $mail -> Port  =  $data->email->Port;                             // 服務器端口 25 或者465 具體要看郵箱服務器支持
 
-        $mail -> setFrom ('vincentgan0402@gmail.com');   //發件人
-        $mail -> addAddress ('axun0402@gmail.com');   // 收件人
+        $mail -> setFrom ($data->email->Username);   //發件人
+        $mail -> addAddress ($emailAddress);   // 收件人
         //$mail->addAddress('ellen@example.com'); // 可添加多個收件人
         //$mail -> addReplyTo ($email, 'info' );  //回复的時候回复給哪個郵箱 建議和發件人一致
         //$mail->addCC('cc@example.com'); //抄送
