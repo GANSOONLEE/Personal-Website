@@ -5,11 +5,13 @@ require  'PHPMailer-6.7.1/src/Exception.php' ;
 require  'PHPMailer-6.7.1/src/PHPMailer.php' ;
 require  'PHPMailer-6.7.1/src/SMTP.php' ;
 
-$db_host ='127.0.0.1';
-$db_user='root';
-$db_pwd='';
-$db_name='user';
-$db_port=3306;
+$data = json_decode(file_get_contents('.env/data.json'), true);
+
+$db_host = $data->MySQL->db_host;
+$db_user= $data->MySQL->db_user;
+$db_pwd= $data->MySQL->pwd;
+$db_name= $data->MySQL->name;
+$db_port= $data->MySQL->port;
 
 $user =$_POST['user'];
 $password = $_POST['password'];
