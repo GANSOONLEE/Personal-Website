@@ -1,10 +1,11 @@
 <?php
+$data = json_decode(file_get_contents('.env/data.json'), true);
 
-$db_host ='127.0.0.1';
-$db_user='root';
-$db_pwd='';
-$db_name='user';
-$db_port=3306;
+$db_host = $data->MySQL->db_host;
+$db_user= $data->MySQL->db_user;
+$db_pwd= $data->MySQL->pwd;
+$db_name= $data->MySQL->name;
+$db_port= $data->MySQL->port;
 
     $con=mysqli_connect($db_host,$db_user,$db_pwd,$db_name,$db_port);
     if(!$con){
