@@ -6,6 +6,13 @@
 ## 开发人员
 + [阿循][1] - Twitter
 
+## 开发須知
+
+變量命名法：
+```
+userID, userName, emailAddress
+```
+
 ## 更新日志
 請參閲 -> [更新日志](https://github.com/GANSOONLEE/Personal-Website/blob/main/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97.md)
 
