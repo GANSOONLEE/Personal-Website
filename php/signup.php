@@ -1,9 +1,9 @@
 <?php
 use PHPMailer\PHPMailer\PHPMailer;
 
-require  'PHPMailer-6.7.1/src/Exception.php' ;
-require  'PHPMailer-6.7.1/src/PHPMailer.php' ;
-require  'PHPMailer-6.7.1/src/SMTP.php' ;
+require  '../PHPMailer-6.7.1/src/Exception.php' ;
+require  '../PHPMailer-6.7.1/src/PHPMailer.php' ;
+require  '../PHPMailer-6.7.1/src/SMTP.php' ;
 
 $data = json_decode(file_get_contents('.env/data.json'), true);
 
