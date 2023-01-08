@@ -1,15 +1,17 @@
 <?php
 use PHPMailer\PHPMailer\PHPMailer;
 
-require  'PHPMailer-6.7.1/src/Exception.php' ;
-require  'PHPMailer-6.7.1/src/PHPMailer.php' ;
-require  'PHPMailer-6.7.1/src/SMTP.php' ;
+require  '../PHPMailer-6.7.1/src/Exception.php' ;
+require  '../PHPMailer-6.7.1/src/PHPMailer.php' ;
+require  '../PHPMailer-6.7.1/src/SMTP.php' ;
 
-$db_host ='127.0.0.1';
-$db_user='root';
-$db_pwd='';
-$db_name='user';
-$db_port=3306;
+$data = json_decode(file_get_contents('../.env/data.json'), true);
+
+$db_host = $data["MySQL"]["db_host"];
+$db_user= $data["MySQL"]["db_user"];
+$db_pwd= $data["MySQL"]["db_pwd"];
+$db_name= $data["MySQL"]["db_name"];
+$db_port= $data["MySQL"]["db_port"];
 
 $user =$_POST['user'];
 $password = $_POST['password'];
@@ -33,21 +35,21 @@ if($num==1){
 
     $token = md5($username . $password);
     $token_exptime = time() + 60 * 60 * 24;
-    $sql = "insert into user (`userID`,`userName`,`Password`,`birthday`,`emailAddress`,`token`,`tokenExpire`,`valid`) values ('$user', '$username', '$password',' ', '$email','$token', '$token_exptime','0')";
+    $sql = "insert into user (`userID`,`userName`,`Password`,`birthday`,`emailAddress`,`token`,`tokenExpire`,`valid`) values ('$user', '$username', '$password','', '$email','$token', '$token_exptime','0')";
     mysqli_query($con, $sql);
     $mail  = new  PHPMailer (true); // Passing `true` enables exceptions
     try{
         
         //服務器配置
-        $mail -> CharSet  = "UTF-8" ;                      //設定郵件編碼
+        $mail -> CharSet  = $data["mail"]["CharSet"];                      //設定郵件編碼
         $mail -> SMTPDebug  =  0 ;                         // 調試模式輸出
         $mail -> isSMTP ();                              // 使用SMTP
         $mail -> Host  =  'smtp.gmail.com' ;                 // SMTP服務器
         $mail -> SMTPAuth  =  true ;                       // 允許 SMTP 認證
-        $mail -> Username  =  'vincentgan0402@gmail.com' ;                 // SMTP 用戶名 即郵箱的用戶名
-        $mail -> Password  =  'qgmbvozhalbqsrrv' ;             // SMTP 密碼 部分郵箱是授權碼(例如163郵箱)
-        $mail -> SMTPSecure  =  'ssl' ;                     // 允許 TLS 或者ssl協議
-        $mail -> Port  =  465 ;                             // 服務器端口 25 或者465 具體要看郵箱服務器支持
+        $mail -> Username  =  $data["mail"]["Username"];                  // SMTP 用戶名 即郵箱的用戶名
+        $mail -> Password  =  $data["mail"]["Password"];            // SMTP 密碼 部分郵箱是授權碼(例如163郵箱)
+        $mail -> SMTPSecure  =  $data["mail"]["SMTPSecure"];                      // 允許 TLS 或者ssl協議
+        $mail -> Port  =  $data["mail"]["Port"];                              // 服務器端口 25 或者465 具體要看郵箱服務器支持
 
         $mail -> setFrom ('vincentgan0402@gmail.com');   //發件人
         $mail -> addAddress ('axun0402@gmail.com');   // 收件人

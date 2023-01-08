@@ -1,8 +1,10 @@
 /dashboard
-/webalizier
+/webalizer
 applications.html
 bitnami.css
 favicon.ico
 /.vscode
 /PHPMailer-6.7.1
 /xampp
+/.env
+/test

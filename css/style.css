@@ -1,8 +1,51 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap'); */
 
+:root{
+    --size-h1: 4rem;
+    --size-h2: 3.5rem;
+    --size-h3: 3rem;
+    --size-h4: 2.4rem;
+    --size-h5: 2rem;
+    --size-h6: 2.8rem;
+    --size-h7: 1.4rem; 
+    --size-h8: 1.1rem;
+}
+
+@media screen and (max-width: 1024px){
+    :root{
+        --size-h1: 3.3rem;
+        --size-h2: 3rem;
+        --size-h3: 2.7rem;
+        --size-h4: 2.4rem;
+        --size-h5: 2rem;
+        --size-h6: 1.7rem;
+        --size-h7: 1.1rem; 
+        --size-h8: .9rem;
+    }
+    body{
+        background-clip: padding-box;
+    }
+}
+
+@media screen and (max-width: 765px){
+    :root{
+        --size-h1: 3rem;
+        --size-h2: 2.7rem;
+        --size-h3: 2.4rem;
+        --size-h4: 2.1rem;
+        --size-h5: 1.8rem;
+        --size-h6: 1.5rem;
+        --size-h7: 1.2rem; 
+        --size-h8: 1rem;
+    }
+    body{
+        background-clip: padding-box;
+    }
+}
+
 /* 去掉所有默认边距/填充，设置字体 */
 html{
-    font-size: 12px;
+    font-size: 62.5%;
     font-size: 1rem;
     color: #fff;
 }
@@ -11,20 +54,22 @@ body{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    /* background-color: #fff; */
     font-family: "lato",sans-serif;
-    /* background: linear-gradient(45deg, rgb(96, 96, 243), rgb(113, 58, 129)); */
     background-image: url(../img/header.jfif);
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: 100% 100%;
+    background-position: 0;
     backdrop-filter: brightness(20%);
+    object-fit: cover;
+    background-origin: border-box;
 }
+
 .header{
-    font-size: 4rem;
+    font-size: var(--size-h1);
     width: 100%;
     text-align: center;
     position: absolute;
-    top: 20px;
+    top: .3rem;
     color: #fff;
 }
 .signUpForm{
@@ -41,7 +86,7 @@ body{
     /* box-shadow: 0 10px 25px rgba(92, 99, 105, .2); */
 }
 .title{
-    font-size: 2.4rem;
+    font-size: var(--size-h4);
     margin-bottom: 2.7rem;
     text-align: center;
 }
@@ -63,8 +108,7 @@ body{
     height: 100%;
     width: 100%;
     border: none;
-    font-size: 1.5rem;
-    /* padding: 1.9rem 1.3rem; */
+    font-size: var(--size-h7);
     outline: none;
     background: none;
     z-index: 1;
@@ -82,9 +126,8 @@ body{
     left: 15px;
     padding: 0 .2rem 2rem;
     margin-bottom: 1rem;
-    /* background-color: white; */
     color: #aaaaaa;
-    font-size: 1.5rem;
+    font-size: var(--size-h7);
     transition: 0.5s;
     z-index: 0;
 }
@@ -97,7 +140,7 @@ body{
     color: white;
     border-radius: 6px;
     cursor: pointer;
-    font-size: 16px;
+    font-size:  var(--size-h7);
 }
 .submitBtn:hover{
     background-color: lightblue;
@@ -107,7 +150,7 @@ body{
     top: -24px;
     left: 0;
     z-index: 10;
-    font-size: 1.2rem;
+    font-size: var(--size-h8);
     font-weight: 600;
 }
 .input:focus + .label{
@@ -117,7 +160,9 @@ body{
     display: flex;
     justify-items: center;
     align-items: center;
+    font-size: var(--size-h7);
 }
 .haveAccount{
-    width: 40%;
+    width: 54%;
+    min-width: 140px;
 }
