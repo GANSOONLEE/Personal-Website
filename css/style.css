@@ -22,9 +22,6 @@
         --size-h7: 1.1rem; 
         --size-h8: .9rem;
     }
-    body{
-        background-clip: padding-box;
-    }
 }
 
 @media screen and (max-width: 765px){
